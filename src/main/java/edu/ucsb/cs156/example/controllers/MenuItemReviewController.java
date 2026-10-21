@@ -78,7 +78,7 @@ public class MenuItemReviewController extends ApiController {
   }
 
   /**
-   * Get a single date by id
+   * Get a single review by id
    *
    * @param id the id of the review
    * @return a MenuItemReview
