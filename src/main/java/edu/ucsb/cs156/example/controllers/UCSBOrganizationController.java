@@ -128,7 +128,7 @@ public class UCSBOrganizationController extends ApiController {
   /**
    * Delete an organization. Accessible only to users with the role "ROLE_ADMIN".
    *
-   * @param code code of the organization to delete
+   * @param orgCode code of the organization to delete
    * @return a message indiciating the organization was deleted
    */
   @Operation(summary = "Delete a UCSBOrganization")
