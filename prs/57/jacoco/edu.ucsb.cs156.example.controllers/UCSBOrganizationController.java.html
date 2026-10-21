@@ -109,7 +109,7 @@ import org.springframework.web.bind.annotation.RestController;
   /**
    * This method returns a single UCSB organization. GET
    *
-   * @param corgCode orgCode of the organization
+   * @param orgCode orgCode of the organization
    * @return a single UCSB organization
    */
   @Operation(summary = &quot;Get a single UCSB organization&quot;)
@@ -128,7 +128,7 @@ import org.springframework.web.bind.annotation.RestController;
   /**
    * Delete an organization. Accessible only to users with the role &quot;ROLE_ADMIN&quot;.
    *
-   * @param code code of the organization to delete
+   * @param orgCode code of the organization to delete
    * @return a message indiciating the organization was deleted
    */
   @Operation(summary = &quot;Delete a UCSBOrganization&quot;)
