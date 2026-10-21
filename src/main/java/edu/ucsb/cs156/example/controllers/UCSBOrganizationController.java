@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -41,7 +42,7 @@ public class UCSBOrganizationController extends ApiController {
   }
 
   /**
-   * This method creates a new diningorgs. Accessible only to users with the role "ROLE_ADMIN".
+   * This method creates a new org. Accessible only to users with the role "ROLE_ADMIN".
    *
    * @param orgCode orgCode of the organization (e.g. ZPR)
    * @param orgTranslationShort short name of the organization
@@ -121,5 +122,25 @@ public class UCSBOrganizationController extends ApiController {
             .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
 
     return org;
+  }
+
+  // DELETE
+  /**
+   * Delete an organization. Accessible only to users with the role "ROLE_ADMIN".
+   *
+   * @param code code of the organization to delete
+   * @return a message indiciating the organization was deleted
+   */
+  @Operation(summary = "Delete a UCSBOrganization")
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @DeleteMapping("")
+  public Object deleteOrganization(@Parameter(name = "orgCode") @RequestParam String orgCode) {
+    UCSBOrganization org =
+        ucsbOrganizationRepository
+            .findById(orgCode)
+            .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
+
+    ucsbOrganizationRepository.delete(org);
+    return genericMessage("UCSBOrganization with id %s deleted".formatted(orgCode));
   }
 }
