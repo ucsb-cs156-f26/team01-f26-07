@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -35,7 +36,7 @@ public class UCSBDiningCommonsMenuItemController extends ApiController {
   @Operation(summary = "List all ucsb dining commons menu items")
   @PreAuthorize("hasRole('ROLE_USER')")
   @GetMapping("/all")
-  public Iterable<UCSBDiningCommonsMenuItem> allUCSBDates() {
+  public Iterable<UCSBDiningCommonsMenuItem> allUCSBDiningCommonsMenuItems() {
     Iterable<UCSBDiningCommonsMenuItem> ucsbDiningCommonsMenuItems =
         ucsbDiningCommonsMenuItemRepository.findAll();
     return ucsbDiningCommonsMenuItems;
@@ -112,5 +113,24 @@ public class UCSBDiningCommonsMenuItemController extends ApiController {
     ucsbDiningCommonsMenuItemRepository.save(ucsbDiningCommonsMenuItem);
 
     return ucsbDiningCommonsMenuItem;
+  }
+
+  /**
+   * Delete a UCSBDiningCommonsMenuItem
+   *
+   * @param id the id of the UCSBDiningCommonsMenuItem to delete
+   * @return a message indicating the UCSBDiningCommonsMenuItem was deleted
+   */
+  @Operation(summary = "Delete a UCSBDiningCommonsMenuItem")
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @DeleteMapping("")
+  public Object deleteUCSBDiningCommonsMenuItem(@Parameter(name = "id") @RequestParam Long id) {
+    UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem =
+        ucsbDiningCommonsMenuItemRepository
+            .findById(id)
+            .orElseThrow(() -> new EntityNotFoundException(UCSBDiningCommonsMenuItem.class, id));
+
+    ucsbDiningCommonsMenuItemRepository.delete(ucsbDiningCommonsMenuItem);
+    return genericMessage("UCSBDiningCommonsMenuItem with id %s deleted".formatted(id));
   }
 }
