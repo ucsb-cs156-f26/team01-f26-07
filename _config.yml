@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f26/team01-f26-07
 owner: ucsb-cs156-f26
 repo_name: team01-f26-07
-pull_requests: [{"author":{"id":"U_kgDOCuwpdA","is_bot":false,"login":"adityat210","name":""},"headRefName":"at-Articles-put","number":71,"title":"at - Articles - adding edit end point of single record","url":"https://github.com/ucsb-cs156-f26/team01-f26-07/pull/71"},{"author":{"id":"U_kgDOCuwpdA","is_bot":false,"login":"adityat210","name":""},"headRefName":"at-Articles-get-id","number":66,"title":"at - Articles - added access to be able to GET by ID endpoint","url":"https://github.com/ucsb-cs156-f26/team01-f26-07/pull/66"}]
+pull_requests: [{"author":{"id":"U_kgDOCuwpdA","is_bot":false,"login":"adityat210","name":""},"headRefName":"at-Articles-delete","number":73,"title":"at - Articles - targeting main branch update","url":"https://github.com/ucsb-cs156-f26/team01-f26-07/pull/73"},{"author":{"id":"U_kgDOCuwpdA","is_bot":false,"login":"adityat210","name":""},"headRefName":"at-Articles-delete","number":72,"title":"at - Articles - added DELETE endpoint","url":"https://github.com/ucsb-cs156-f26/team01-f26-07/pull/72"}]
