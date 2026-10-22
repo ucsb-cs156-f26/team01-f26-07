@@ -34,7 +34,7 @@ public class UCSBDatesController extends ApiController {
   /**
    * List all UCSB dates
    *
-   * @return an iterable of UCSBDate
+   * @return an iterable of RecommendationRequest
    */
   @Operation(summary = "List all ucsb dates")
   @PreAuthorize("hasRole('ROLE_USER')")
