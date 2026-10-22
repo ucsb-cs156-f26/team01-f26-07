@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f26/team01-f26-07
 owner: ucsb-cs156-f26
 repo_name: team01-f26-07
-pull_requests: [{"author":{"id":"U_kgDOCuwpdA","is_bot":false,"login":"adityat210","name":""},"headRefName":"at-Articles--controller","number":64,"title":"at - Articles - established the GET and POST endpoints","url":"https://github.com/ucsb-cs156-f26/team01-f26-07/pull/64"},{"author":{"id":"U_kgDOCM7nVA","is_bot":false,"login":"sophia-ismaelucsb","name":""},"headRefName":"Sophia-MenuItemPUT","number":60,"title":"Create a PUT method for UCSB Dining commons menu item","url":"https://github.com/ucsb-cs156-f26/team01-f26-07/pull/60"}]
+pull_requests: [{"author":{"id":"U_kgDOCuwpdA","is_bot":false,"login":"adityat210","name":""},"headRefName":"at-Articles--controller","number":64,"title":"at - Articles - established the GET and POST endpoints","url":"https://github.com/ucsb-cs156-f26/team01-f26-07/pull/64"}]
