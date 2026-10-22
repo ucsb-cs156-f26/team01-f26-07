@@ -1513,7 +1513,7 @@
 <td class=''><pre><span  class=''>  public RecommendationRequest getById(@Parameter(name = &#34;id&#34;) @RequestParam Long id) {</span></pre></td></tr>
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@38a61c81_107'/>
 107
 </td>
@@ -1524,7 +1524,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    RecommendationRequest recommendationRequest =</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    RecommendationRequest recommendationRequest =</span></pre></td></tr>
 
 <tr>
 <td class='na'>
@@ -1541,7 +1541,7 @@
 <td class=''><pre><span  class=''>        recommendationRequestRepository</span></pre></td></tr>
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@38a61c81_109'/>
 109
 </td>
@@ -1552,23 +1552,23 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>            .findById(id)</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            .findById(id)</span></pre></td></tr>
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@38a61c81_110'/>
 110
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@38a61c81_110'>1</a>
 <span>
-1. lambda$getById$0 : replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::lambda$getById$0 &rarr; NO_COVERAGE<br/>
+1. lambda$getById$0 : replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::lambda$getById$0 &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>            .orElseThrow(() -&#62; new EntityNotFoundException(RecommendationRequest.class, id));</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            .orElseThrow(() -&#62; new EntityNotFoundException(RecommendationRequest.class, id));</span></pre></td></tr>
 
 <tr>
 <td class='na'>
@@ -1585,20 +1585,20 @@
 <td class=''><pre><span  class=''></span></pre></td></tr>
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@38a61c81_112'/>
 112
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@38a61c81_112'>1</a>
 <span>
-1. getById : replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::getById &rarr; NO_COVERAGE<br/>
+1. getById : replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::getById &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>    return recommendationRequest;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>    return recommendationRequest;</span></pre></td></tr>
 
 <tr>
 <td class='na'>
@@ -1727,7 +1727,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@38a61c81_110'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$getById$0<br/><b>Killed by : </b>none</span></span> replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::lambda$getById$0 &rarr; NO_COVERAGE</span>
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$getById$0<br/><b>Killed by : </b>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:test_that_logged_in_user_can_get_by_id_when_the_id_does_not_exist()]</span></span> replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::lambda$getById$0 &rarr; KILLED</span>
 </div> 
 </td>
 </tr>
@@ -1738,7 +1738,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@38a61c81_112'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getById<br/><b>Killed by : </b>none</span></span> replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::getById &rarr; NO_COVERAGE</span>
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getById<br/><b>Killed by : </b>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:test_that_logged_in_user_can_get_by_id_when_the_id_exists()]</span></span> replaced return value with null for edu/ucsb/cs156/example/controllers/RecommendationRequestsController::getById &rarr; KILLED</span>
 </div> 
 </td>
 </tr>
@@ -1764,7 +1764,7 @@
 
 <h2>Tests examined</h2>
 <ul>
-<li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:an_admin_user_can_post_a_new_recommendation_request()] (9 ms)</li><li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:logged_in_users_can_get_all()] (4 ms)</li><li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:logged_in_user_can_get_all_recommendation_requests()] (15 ms)</li>
+<li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:test_that_logged_in_user_can_get_by_id_when_the_id_exists()] (6 ms)</li><li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:an_admin_user_can_post_a_new_recommendation_request()] (4 ms)</li><li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:logged_in_users_can_get_all()] (3 ms)</li><li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:logged_in_user_can_get_all_recommendation_requests()] (7 ms)</li><li>edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests.[engine:junit-jupiter]/[class:edu.ucsb.cs156.example.controllers.RecommendationRequestsControllerTests]/[method:test_that_logged_in_user_can_get_by_id_when_the_id_does_not_exist()] (5 ms)</li>
 </ul>
 
 <br/>
