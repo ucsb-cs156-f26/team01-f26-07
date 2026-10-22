@@ -7,6 +7,7 @@ import edu.ucsb.cs156.example.repositories.ArticlesRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import java.time.LocalDateTime;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,8 +27,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class ArticlesController extends ApiController {
+  @Operation(summary = "Update an existing article")
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @PutMapping("")
+  public Articles articleDate(
+      @Parameter(name = "id") @RequestParam Long id, @RequestBody @Valid Articles incoming) {
 
-  @Autowired ArticlesRepository articlesRepository;
+    Articles article =
+        articleRepository
+            .findById(id)
+            .orElseThrow(() -> new EntityNotFoundException(Articles.class, id));
+
+    article.setExplanation(incoming.getExplanation());
+    article.setTitle(incoming.getTitle());
+    article.setDateAdded(incoming.getDateAdded());
+    article.setUrl(incoming.getUrl());
+    article.setEmail(incoming.getEmail());
+
+    articleRepository.save(article);
+
+    return article;
+  }
+
+  @Autowired ArticlesRepository articleRepository;
 
   /**
    * List all articles
@@ -36,7 +60,7 @@ public class ArticlesController extends ApiController {
   @PreAuthorize("hasRole('ROLE_USER')")
   @GetMapping("/all")
   public Iterable<Articles> allArticles() {
-    Iterable<Articles> articles = articlesRepository.findAll();
+    Iterable<Articles> articles = articleRepository.findAll();
     return articles;
   }
 
@@ -45,7 +69,7 @@ public class ArticlesController extends ApiController {
   @GetMapping("")
   public Articles getById(@Parameter(name = "id") @RequestParam Long id) {
     Articles article =
-        articlesRepository
+        articleRepository
             .findById(id)
             .orElseThrow(() -> new EntityNotFoundException(Articles.class, id));
 
@@ -78,7 +102,7 @@ public class ArticlesController extends ApiController {
     article.setEmail(email);
     article.setDateAdded(dateAdded);
 
-    Articles savedArticle = articlesRepository.save(article);
+    Articles savedArticle = articleRepository.save(article);
 
     return savedArticle;
   }
